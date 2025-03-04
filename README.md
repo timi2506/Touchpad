@@ -67,3 +67,7 @@ TouchpadButton(id: "button1", text: "Button1", symbolName: "apple.logo", boundar
 ## Issues or Questions
 
 If you have any issues or questions feel free to open an [issue](https://github.com/timi2506/Touchpad/issues/new/choose) or contact me on [Twitter](https://x.com/timi2506)
+
+## Requirements
+- macOS 12+
+- iOS 15+
