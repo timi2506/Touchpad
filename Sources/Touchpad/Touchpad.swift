@@ -85,23 +85,38 @@ public struct TouchpadView: View {
 }
 
 public struct TouchpadButton {
-    public init(id: String, text: String?, symbolName: String?, boundaries: CGRect, action: @escaping () -> Void) {
+    public init(id: String, text: String?, symbolName: String?, boundaries: CGRect, action: @escaping () -> Void, border: Bool, borderColor: Color?, borderRadius: CGFloat?) {
         self.id = id
         self.text = text
         self.symbolName = symbolName
         self.boundaries = boundaries
         self.action = action
+        self.border = border
+        self.borderColor = borderColor ?? Color.red
+        self.borderRadius = borderRadius ?? CGFloat(0)
     }
     public let id: String
     public let text: String?
     public let symbolName: String?
     public let boundaries: CGRect
+    public let border: Bool
+    public let borderColor: Color
+    public let borderRadius: CGFloat
     public var body: some View {
-        VStack {
-            if let text = text {
-                Text(text)
-            } else if let symbolName = symbolName {
-                Image(systemName: symbolName).resizable().scaledToFit()
+        Group {
+            ZStack {
+                VStack {
+                    if let text = text {
+                        Text(text)
+                    } else if let symbolName = symbolName {
+                        Image(systemName: symbolName).resizable().scaledToFit()
+                    }
+                }
+                if border {
+                    RoundedRectangle(cornerRadius: borderRadius)
+                        .stroke(borderColor)
+                        .frame(width: boundaries.width, height: boundaries.height)
+                }
             }
         } .frame(width: boundaries.width, height: boundaries.height).position(x: boundaries.midX, y: boundaries.midY)
     }
@@ -114,15 +129,15 @@ public struct TouchpadButton {
 
 #Preview {
     TouchpadView(buttons: [
-        TouchpadButton(id: "button1", text: "TextOnly", symbolName: nil, boundaries: CGRect(x: 100, y: 100, width: 100, height: 100), action: {
+        TouchpadButton(id: "button1", text: "Button 1", symbolName: nil, boundaries: CGRect(x: 100, y: 100, width: 100, height: 100), action: {
             print("button 1 pressed")
-        }),
-        TouchpadButton(id: "button2", text: "SymbolAndText", symbolName: "apple.logo", boundaries: CGRect(x: 300, y: 200, width: 100, height: 100), action: {
+        }, border: true, borderColor: nil, borderRadius: nil),
+        TouchpadButton(id: "button2", text: "Button 2", symbolName: nil, boundaries: CGRect(x: 150, y: 205, width: 100, height: 45), action: {
             print("button 2 pressed")
-        }),
-        TouchpadButton(id: "button3", text: nil, symbolName: "apple.logo", boundaries: CGRect(x: 50, y: 50, width: 100, height: 100), action: {
-            print("button 3 pressed")
-        })
+        }, border: true, borderColor: .green, borderRadius: 15),
+        TouchpadButton(id: "button3", text: "Button 3", symbolName: nil, boundaries: CGRect(x: 200, y: 250, width: 100, height: 50), action: {
+            print("button 2 pressed")
+        }, border: false, borderColor: nil, borderRadius: nil)
     ], touchPadLabel: nil)
 }
 
