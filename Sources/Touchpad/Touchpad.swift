@@ -28,10 +28,10 @@ public struct TouchpadView: View {
             VStack {
                 ZStack {
                     TouchPad.frame(maxHeight: .infinity, alignment: .bottom).padding()
-                    Cursor
                     ForEach(buttons, id: \.self.id) { button in
                         button.body
                     }
+                    Cursor
                 }
             } .onAppear {
                 currentGeometry = geometry
