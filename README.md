@@ -6,7 +6,7 @@
 <h1 align="left">Touchpad</h1>
 
 ## Showcase
-Examples of this Package can be seen in this Example Project. (SOON)
+Examples of this Package can be seen in [this Example Project](https://github.com/timi2506/Touchpad-Example).
 
 ## Installation
 ### Using Xcode's built-in Package Manager 
