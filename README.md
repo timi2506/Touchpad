@@ -52,7 +52,16 @@ TouchpadButton(id: "button1", text: "Button1", symbolName: "apple.logo", boundar
   - a CGRect that defines the location (coordinates: x and y) of the button and the tapArea(width and height) that the cursor has to be in to register a button tap and the frame the button is in.
 - **action** *Semi-Optional*
   - The Action that gets executed when the button is clicked with the cursor
-
+- **border** *Optional - defaults to false* 
+  - Bool that toggles showing a border of the tapArea
+- **borderColor** *Optional - defaults to red*
+  - Color of the Border
+- **borderRadius** *Optional - defaults to 0*
+  - CGFloat of the BorderRadius
+ 
+*Optional* means it can be nil without causing issues
+*Semi-Optional* means that you have to define AT LEAST ONE Semi Optional Value, the rest can be nil if not needed
+*Required* means you NEED to define this value and it cant be nil
 ## Issues or Questions
 
 If you have any issues or questions feel free to open an [issue](https://github.com/timi2506/Touchpad/issues/new/choose) or contact me on [Twitter](https://x.com/timi2506)
