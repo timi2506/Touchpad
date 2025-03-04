@@ -114,13 +114,16 @@ public struct TouchpadButton {
 
 #Preview {
     TouchpadView(buttons: [
-        TouchpadButton(id: "button1", text: "ThisIsAButton", symbolName: "apple.logo", boundaries: CGRect(x: 205, y: 85, width: 100, height: 100), action: {
-            print("Button 1 Tapped")
+        TouchpadButton(id: "button1", text: "TextOnly", symbolName: nil, boundaries: CGRect(x: 100, y: 100, width: 100, height: 100), action: {
+            print("button 1 pressed")
         }),
-        TouchpadButton(id: "button2", text: "OnlyText", symbolName: nil, boundaries: CGRect(x: 100, y: 50, width: 100, height: 100), action: {
-            print("Button 2 Tapped")
+        TouchpadButton(id: "button2", text: "SymbolAndText", symbolName: "apple.logo", boundaries: CGRect(x: 300, y: 200, width: 100, height: 100), action: {
+            print("button 2 pressed")
+        }),
+        TouchpadButton(id: "button3", text: nil, symbolName: "apple.logo", boundaries: CGRect(x: 50, y: 50, width: 100, height: 100), action: {
+            print("button 3 pressed")
         })
-    ], touchPadLabel: "Touchpad Label (nil for none)")
+    ], touchPadLabel: nil)
 }
 
 
