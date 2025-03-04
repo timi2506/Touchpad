@@ -31,12 +31,12 @@ public struct TouchpadView: View {
             } .ignoresSafeArea(.all)
     }
     
-    var Cursor: some View {
+    public var Cursor: some View {
         RoundedRectangle(cornerRadius: 15).foregroundStyle(.ultraThinMaterial).frame(width: 25, height: 25).overlay(
             RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 2.5)
         ).offset(offset)
     }
-    var TouchPad: some View {
+    public var TouchPad: some View {
         RoundedRectangle(cornerRadius: 25)
             .foregroundStyle(.ultraThinMaterial)
             .overlay(
