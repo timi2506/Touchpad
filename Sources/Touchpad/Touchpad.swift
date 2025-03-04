@@ -8,11 +8,11 @@
 import SwiftUI
 
 public struct TouchpadView: View {
-    @State private var offset = CGSize.zero
-    @State private var lastOffset: CGSize = .zero
-    @State var showPosition: CGSize = CGSize.zero
-    @State private var cursorPosition: CGPoint = .zero
-    @State var currentGeometry: GeometryProxy?
+    @State public var offset = CGSize.zero
+    @State public var lastOffset: CGSize = .zero
+    @State public var showPosition: CGSize = CGSize.zero
+    @State public var cursorPosition: CGPoint = .zero
+    @State public var currentGeometry: GeometryProxy?
     public let buttons: [TouchpadButton]
     public let touchPadLabel: String?
     public var body: some View {
