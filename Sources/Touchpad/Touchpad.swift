@@ -27,7 +27,7 @@ public struct TouchpadView: View {
         GeometryReader { geometry in
             VStack {
                 ZStack {
-                    TouchPad.frame(maxHeight: .infinity, alignment: .bottom)
+                    TouchPad.frame(maxHeight: .infinity, alignment: .bottom).padding()
                     Cursor
                     ForEach(buttons, id: \.self.id) { button in
                         button.body
