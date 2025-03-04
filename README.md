@@ -52,7 +52,7 @@ TouchpadButton(id: "button1", text: "Button1", symbolName: "apple.logo", boundar
   - a CGRect that defines the location (coordinates: x and y) of the button and the tapArea(width and height) that the cursor has to be in to register a button tap and the frame the button is in.
 - **action** *Semi-Optional*
   - The Action that gets executed when the button is clicked with the cursor
-- **border** *Optional - defaults to false* 
+- **border** *Required*
   - Bool that toggles showing a border of the tapArea
 - **borderColor** *Optional - defaults to red*
   - Color of the Border
