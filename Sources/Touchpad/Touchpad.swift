@@ -8,6 +8,14 @@
 import SwiftUI
 
 public struct TouchpadView: View {
+    public init(
+        buttons: [TouchpadButton],
+        touchPadLabel: String? = nil
+    ) {
+        self.buttons = buttons
+        self.touchPadLabel = touchPadLabel
+    }
+    
     @State public var offset = CGSize.zero
     @State public var lastOffset: CGSize = .zero
     @State public var showPosition: CGSize = CGSize.zero
@@ -16,19 +24,19 @@ public struct TouchpadView: View {
     public let buttons: [TouchpadButton]
     public let touchPadLabel: String?
     public var body: some View {
-            GeometryReader { geometry in
-                VStack {
-                    ZStack {
-                        TouchPad.frame(maxHeight: .infinity, alignment: .bottom)
-                        Cursor
-                        ForEach(buttons, id: \.self.id) { button in
-                            button.body
-                        }
+        GeometryReader { geometry in
+            VStack {
+                ZStack {
+                    TouchPad.frame(maxHeight: .infinity, alignment: .bottom)
+                    Cursor
+                    ForEach(buttons, id: \.self.id) { button in
+                        button.body
                     }
-                } .onAppear {
-                    currentGeometry = geometry
                 }
-            } .ignoresSafeArea(.all)
+            } .onAppear {
+                currentGeometry = geometry
+            }
+        } .ignoresSafeArea(.all)
     }
     
     public var Cursor: some View {
@@ -77,6 +85,13 @@ public struct TouchpadView: View {
 }
 
 public struct TouchpadButton {
+    public init(id: String, text: String?, symbolName: String?, boundaries: CGRect, action: @escaping () -> Void) {
+        self.id = id
+        self.text = text
+        self.symbolName = symbolName
+        self.boundaries = boundaries
+        self.action = action
+    }
     public let id: String
     public let text: String?
     public let symbolName: String?
